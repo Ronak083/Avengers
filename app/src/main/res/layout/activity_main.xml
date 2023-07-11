@@ -16,7 +16,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="30dp"/>
     <EditText
-        android:id="@+id/etMobileNumb"
+        android:id="@+id/etMobileNumber"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginRight="15dp"
@@ -37,7 +37,7 @@
         android:layout_marginLeft="15dp"
         android:layout_marginTop="20dp"
         android:padding="6dp"
-        android:layout_below="@id/etMobileNumb"
+        android:layout_below="@id/etMobileNumber"
         android:inputType="textPassword"
         android:maxLines="1"
         android:hint="@string/password"
@@ -54,7 +54,7 @@
         android:layout_marginTop="20dp"
         android:layout_marginEnd="15dp"
         android:layout_marginBottom="15dp"
-        android:background="#FF0000"
+        android:background="@color/avenger"
         android:text="@string/log_in"
         android:textSize="20sp"
         android:textStyle="bold"
