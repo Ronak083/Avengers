@@ -5,4 +5,6 @@
     <string name="log_in">Log in</string>
     <string name="forget_password">Forget Password</string>
     <string name="register_here">Register Here</string>
+    <string name="message">Enter your message</string>
+    <string name="send">SEND</string>
 </resources>
