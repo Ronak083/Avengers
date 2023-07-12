@@ -11,7 +11,10 @@ class MessageActivity : AppCompatActivity() {
 
         if(intent != null){
             textmessage = intent.getStringExtra("newMessage")
+            //val text.text = textmessage
         }
+
+
 
     }
 }
