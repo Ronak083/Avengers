@@ -1,6 +1,8 @@
 package com.learn.avengers
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -16,9 +18,23 @@ class LoginActivity : AppCompatActivity(){
     lateinit var txtRegister:TextView
     val validMobileNumber = "0123456789"
     val validPassword = arrayOf("tony", "steve", "bruce","thanos")
+
+    lateinit var sharedPreferences: SharedPreferences
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        sharedPreferences = getSharedPreferences(getString(R.string.preference_file_name),Context.MODE_PRIVATE)
+
+        val isLoggedIn = sharedPreferences.getBoolean("isLoggedIn", false)
+
         setContentView(R.layout.login_layout)
+
+        if(isLoggedIn){
+            val intent = Intent(this@LoginActivity,AvengersActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
+
         title = "Login Page"
 
         etMobileNumber = findViewById(R.id.etMobileNumber)
@@ -37,29 +53,48 @@ class LoginActivity : AppCompatActivity(){
 
             if (mobileNumber == validMobileNumber){
                 if(password == validPassword[0]){
+
                     nameOfAvenger = "Iron Man"
-                    intent.putExtra("Name", nameOfAvenger)
+                    savePreferences(nameOfAvenger)
                     startActivity(intent)
+
                 }else if(password == validPassword[1]){
                     nameOfAvenger = "Captian America"
-                    intent.putExtra("Name", nameOfAvenger)
+                    savePreferences(nameOfAvenger)
                     startActivity(intent)
+
                 }else if(password == validPassword[2]){
                     nameOfAvenger = "The Hulk"
-                    intent.putExtra("Name", nameOfAvenger)
+                    savePreferences(nameOfAvenger)
                     startActivity(intent)
+
                 }else if(password == validPassword[3]){
                     nameOfAvenger = "The AvengersActivity"
-                    intent.putExtra("Name", nameOfAvenger)
+                    savePreferences(nameOfAvenger)
                     startActivity(intent)
                 }
             } else{
                 Toast.makeText(this@LoginActivity,"Incorrect Credentials",Toast.LENGTH_LONG).show()
             }
         }
+        txtForgetPassword.setOnClickListener {
+            val intent = Intent(this@LoginActivity, ForgetPasswordActivity::class.java)
+            startActivity(intent)
+        }
+
+        txtRegister.setOnClickListener {
+            val intent = Intent(this@LoginActivity, RegisterActivity::class.java)
+            startActivity(intent)
+        }
     }
     override fun onPause() {
         super.onPause()
         finish()
     }
+
+    fun savePreferences(title: String){
+        sharedPreferences.edit().putBoolean("isLoggedIn", true).apply()
+        sharedPreferences.edit().putString("Title", title).apply()
+    }
+
 }

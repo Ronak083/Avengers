@@ -7,4 +7,7 @@
     <string name="register_here">Register Here</string>
     <string name="message">Enter your message</string>
     <string name="send">SEND</string>
+    <string name="preference_file_name">Avengers Preferences</string>
+    <string name="left_blank">Error!! Page Not Found</string>
+    <string name="log_out">Log out</string>
 </resources>

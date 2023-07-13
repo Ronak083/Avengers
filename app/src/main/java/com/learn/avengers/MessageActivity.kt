@@ -2,19 +2,21 @@ package com.learn.avengers
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.TextView
 
 class MessageActivity : AppCompatActivity() {
-    var textmessage: String? = "NULL"
+
+    lateinit var txtMessage: TextView
+    var message = "Custom Message"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_message)
 
-        if(intent != null){
-            textmessage = intent.getStringExtra("newMessage")
-            //val text.text = textmessage
+        txtMessage = findViewById(R.id.txtMessage)
+
+        if (intent != null){
+            message = intent.getStringExtra("Message").toString()
+            txtMessage.text = message
         }
-
-
-
     }
 }
