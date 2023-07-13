@@ -5,4 +5,6 @@
     <color name="avenger">#FF0000</color>
     <color name="colorPrimary">#FF000000</color>
     <color name="colorPrimaryDark">#FF000000</color>
+    <color name="colorAccent">#D81B60</color>
+    <color name="myAddedColor">#880e4f</color>
 </resources>
